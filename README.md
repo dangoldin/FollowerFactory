@@ -2,12 +2,12 @@
 Create the scatterplots used in [NYTimes' Follower Factory](https://www.nytimes.com/interactive/2018/01/27/technology/social-media-bots.html).
 
 ### Getting Started
-Install dependencies. 
+Install dependencies.
 ```
-pip install TwitterAPI
+pip install TwitterAPI # or pip install -r requirements.txt
 ```
 
-Edit `ff.py` for your account. Go to https://apps.twitter.com/ to get your API keys. 
+Edit `ff.py` for your account. Go to https://apps.twitter.com/ to get your API keys.
 Don't forget to fill in your screen name (or someone else's).
 
 ```
@@ -30,3 +30,5 @@ This can take a long time due to Twitter's rate-limiting, so expect to wait abou
 
 ### Troubleshooting
 If the chart fails to load, you may be getting an error along the lines of `Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https`. To fix this, either open `index.html` in firefox, or start chrome with `--allow-file-access-from-files`, or try some of the other suggestions listed [here](https://stackoverflow.com/questions/10752055/cross-origin-requests-are-only-supported-for-http-error-when-loading-a-local).
+
+Another way to avoid the Cross origin error is to run ```python -m SimpleHTTPServer``` and navigate to http://localhost:8000.
