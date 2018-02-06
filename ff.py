@@ -20,8 +20,8 @@ def main():
     count = 0
 
     with open('data.csv', 'a+') as f:
-        f.write("close,date\n")
-    
+        f.write("close,date,screen_name\n")
+
     while True:
         if not cursor:
             break
@@ -29,11 +29,10 @@ def main():
         fans_clean = json.loads(fans_raw.response.text)
         cursor = fans_clean['next_cursor']
         logging.info(cursor)
-        fans = [f['created_at'] for f in fans_clean['users']]
 
         with open('data.csv', 'a') as f:
             for fans in fans_clean['users']:
-                f.write("%s,%s \n" % (fans['id'], fans['created_at']) )
+                f.write("%s,%s,%s\n" % (fans['id'], fans['created_at'], fans['screen_name']) )
 
         count += 200
         logging.info("count: %s" % count)
